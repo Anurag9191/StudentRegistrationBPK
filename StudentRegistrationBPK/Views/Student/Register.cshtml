@@ -1,0 +1,115 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model StudentRegistrationBPK.Models.RegisterUser ;
+@{
+    ViewData["Title"] = "Registration Page";
+}
+
+<style>
+    body, html {
+        height: 100%;
+        margin: 10px;
+    }
+
+    .container {
+        display: flex;
+        height: 100%;
+    }
+
+    .left-section {
+        flex: 8;
+        background-color: lightgoldenrodyellow;
+    }
+
+    .right-section {
+        flex: 2;
+        background-color: lightcyan;
+    }
+
+    .required-field::after {
+        content: "*";
+        color: red;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+        .form-group label {
+            margin-right: 20px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group input[type="address"],
+        .form-group input[type="date"]
+        .form-group input[type="password"]
+        .form-group input[type="checkbox"] {
+            width: 200px;
+        }
+
+        .form-group button {
+            margin-left: 20px;
+        }
+
+    .centered img {
+        width: 150px;
+        border-radius: 50%;
+    }
+
+    .centered {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+    }
+
+</style>
+
+
+<div class="text-center">
+    <h2>Registration Form</h2>
+</div>
+<div>
+    <form method="post" action="Register"></form>
+    <div class="container">
+        <div class="left-section">
+            <div class="form-group">
+                <label class="required-field">First Name: </label>
+                <input type="text" id="FirstName" name="FirstName" asp-for="FirstName" required></input>
+            </div>
+            <div class="form-group">
+                <label>Last Name: </label>
+                <input type="text" id="LastName" name="LastName" asp-for="LastName" />
+            </div>
+            <div class="form-group">
+                <label class="required-field">Date Of Birth: </label>
+                <input type="date" id="DOB" name="DOB" asp-for=Dob />
+            </div>
+            <div class="form-group">
+                <label class="required-field">Phone Number: </label>
+                <input type="number" id="phone" name="phone" asp-for="Phone" required />
+            </div>
+            <div class="form-group">
+                <label class="required-field">Parents Name: </label>
+                <input type="text" id="parentName" name="ParentName" asp-for="ParentName" required />
+            </div>
+            <div class="form-group">
+                <input type="checkbox" required /><p> I agree that all the deatils provided by me a right to all my known capability and in case of them being wrong i will be held responsible for wrong details</p>
+            </div>
+            <a asp-area="" asp-controller="Student" asp-action="Register" style="cursor:grab"><label>New</label></a><br />
+            <a asp-area="" asp-controller="Student" asp-action="List" style="cursor:grabbing"><label>List All Users</label></a><br />
+            <br />
+            <input type="submit" class="btn btn-primary" style="align-items:center ; width:fit-content" />
+
+        </div>
+ 
+    </div>

@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<StudentRegistrationBPK.Models.Student>
+
+<style>
+    body {
+        background-color: aliceblue;
+    }
+</style>
+
+<h2 style="text-align:center">Registered Users</h2>
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr class="row">
+                <td>ID</td>
+                <td>First Name</td>
+                <td>last Name</td>
+                <td>Date of Birth</td>
+                <td>Phone Number</td>
+                <td>Parent Name</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var list in Model)
+            {
+                <tr>
+                    <td>@list.Id</td>
+                    <td>@list.FirstName</td>
+                    <td>@list.LastName</td>
+                    <td>@list.Dob</td>
+                    <td>@list.Phone</td>
+                    <td>@list.ParentName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No elements to be found</p>
+}
