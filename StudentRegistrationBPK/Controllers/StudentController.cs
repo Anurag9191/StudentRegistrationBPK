@@ -30,18 +30,22 @@ namespace StudentRegistrationBPK.Controllers
         [HttpPost]
         public IActionResult Login(Login login)
         {
-            var student = mvcDbContext.Students.FirstOrDefault(student => student.Phone == login.Phone && login.Dob == student.Dob);
-            if (student != null || VerifyDob((DateTime)login.Dob, (DateTime)student.Dob) && student.FirstName != null && student.ParentName!=null)
+            if (ModelState.IsValid)
             {
-                return View("Details", "Student");
-            }
-            else
-            {
-                ModelState.AddModelError("", "Invalid Login Credentials");
+                var stu = mvcDbContext.Students.FirstOrDefault(stu => stu.Phone == login.Phone && stu.ParentName == login.ParentName);
+
+                if(stu != null)
+                {
+                    return RedirectToAction("Details",new{id = stu.Id});
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid Credentials Please Try Again.");
+                }
+
             }
             return View();
         }
-
 
         [HttpGet]
         public IActionResult Register()
@@ -60,7 +64,7 @@ namespace StudentRegistrationBPK.Controllers
                 Id = count,
                 FirstName = registerUser.FirstName,
                 LastName = registerUser.LastName,
-                Dob = (DateTime)registerUser.Dob,
+                Dob = registerUser.Dob,
                 Address = registerUser.Address,
                 City = registerUser.City,
                 Phone = registerUser.Phone,
@@ -84,10 +88,10 @@ namespace StudentRegistrationBPK.Controllers
             return View(students);
         }
         [HttpGet]
-        public IActionResult Details(String FirstName, String parentName)
+        public IActionResult Details(int id)
         {
-            var student = mvcDbContext.Students.FirstOrDefault(student => student.FirstName == FirstName && parentName == student.ParentName);
-            return View(student);
+            var Stu = mvcDbContext.Students.FirstOrDefault(Stu => Stu.Id == id);
+            return View(Stu);
         }
         public Boolean VerifyDob(DateTime Logindate,DateTime ModelDate)
         {

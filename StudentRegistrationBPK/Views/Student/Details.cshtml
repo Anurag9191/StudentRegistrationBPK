@@ -9,46 +9,53 @@
 
 <html>
     <head>
-
+        <style>
+            body{
+                background-color:aqua ;
+            }
+            h1,h4,h3,h2{
+                align-content: center ;
+            }
+        </style>
     </head>
     <body>
         <h2>Welcome @Model.FirstName</h2>
-        <div>
+        <div>   
             <label>Details of @Model.FirstName @Model.LastName</label>
         </div>
         <div>
-        <label>Dob: </label>@Model.Dob
+        <label>Dob: @Model.Dob</label>
         </div>
         <div>
-        <label>Parent Name: </label>@Model.ParentName 
+        <label>Parent Name: @Model.ParentName </label>
         </div>
         <div>
-        <label>City: </label> @Model.City 
-        </div>
+        <label>City: @Model.City </label>
+    </div>
         <div>
-            <label>Phone Number: </label>@Model.Phone
+        <label>Phone Number: @Model.Phone</label>
         </div>
         <h3>Academic Performance</h3>
         <div>
             <label>Marks Secured In Each Subject</label>
         </div>
         <div>
-            <label>Maths: </label>@Model.Maths
+        <label>Maths: @Model.Maths</label>
         </div>
         <div>
-            <label>Hindi: </label>@Model.Hindi 
+        <label>Hindi: @Model.Hindi </label>
         </div>
         <div>
-            <label>English: </label>@Model.English
+        <label>English: @Model.English</label>
         </div>
         <div>
-            <label>Science: </label>@Model.Science
+        <label>Science: @Model.Science</label>
         </div>
         <div>
-            <label>Social Science: </label>@Model.SocialScience
+        <label>Social Science: @Model.SocialScience</label>
         </div>
         <div>
-        @if ((@Model.Hindi + Model.Science + Model.SocialScience + Model.English + Model.Maths) / 5 >= 0.6)
+        @if ((@Model.Hindi + Model.Science + Model.SocialScience + Model.English + Model.Maths) / 500 >= 0.6)
         {
             <h2>@Model.FirstName has scored more than 60%</h2>
         }
