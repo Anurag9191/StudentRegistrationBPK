@@ -79,7 +79,7 @@
     <h2>Registration Form</h2>
 </div>
 <div>
-    <form method="post" action="Register"></form>
+    <form method="post" action="Register">
     <div class="container">
         <div class="left-section">
             <div class="form-group">
@@ -102,6 +102,27 @@
                 <label class="required-field">Parents Name: </label>
                 <input type="text" id="parentName" name="ParentName" asp-for="ParentName" required />
             </div>
+            <label>Enter the Marks Scored in Each Subject: </label><br />
+            <div class="form-group">
+                <label class="required-field">Maths</label>
+                <input type="text" id="Maths" name="Maths" asp-for="Maths" required />
+            </div>
+            <div class="form-group">
+                <label class="required-field">English</label>
+                <input type="text" id="Engish" name="English" asp-for="English" required />
+            </div>
+            <div class="form-group">
+                <label class="required-field">Science</label>
+                <input type="text" id="Science" name="Science" asp-for="Science" required/>
+            </div>
+            <div class="form-group">
+                <label class="required-field">Social Science</label>
+                <input type="text" id="SocialScience" name="SocialScience" asp-for="SocialScience" required />
+            </div>
+                <div class="form-group">
+                    <label class="required-field">Hindi</label>
+                    <input type="text" id="Hindi" name="Hindi" asp-for="Hindi" required />
+                </div>
             <div class="form-group">
                 <input type="checkbox" required /><p> I agree that all the deatils provided by me a right to all my known capability and in case of them being wrong i will be held responsible for wrong details</p>
             </div>
@@ -109,7 +130,8 @@
             <a asp-area="" asp-controller="Student" asp-action="List" style="cursor:grabbing"><label>List All Users</label></a><br />
             <br />
             <input type="submit" class="btn btn-primary" style="align-items:center ; width:fit-content" />
-
+            
         </div>
+    </form>
  
     </div>

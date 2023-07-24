@@ -54,6 +54,8 @@ namespace StudentRegistrationBPK.Models
                 entity.Property(e => e.Phone)
                     .HasMaxLength(100)
                     .HasColumnName("phone");
+
+                //entity.Property(e => e.)
             });
 
             OnModelCreatingPartial(modelBuilder);

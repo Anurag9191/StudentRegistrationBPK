@@ -6,4 +6,4 @@ namespace StudentRegistrationBPK.Models
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
-}
+}   

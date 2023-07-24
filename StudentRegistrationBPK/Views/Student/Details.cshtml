@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model StudentRegistrationBPK.Models.Student ;
+
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h2>Welcome @Model.FirstName</h2>
+        <div>
+            <label>Details of @Model.FirstName @Model.LastName</label>
+        </div>
+        <div>
+        <label>Dob: </label>@Model.Dob
+        </div>
+        <div>
+        <label>Parent Name: </label>@Model.ParentName 
+        </div>
+        <div>
+        <label>City: </label> @Model.City 
+        </div>
+        <div>
+            <label>Phone Number: </label>@Model.Phone
+        </div>
+        <h3>Academic Performance</h3>
+        <div>
+            <label>Marks Secured In Each Subject</label>
+        </div>
+        <div>
+            <label>Maths: </label>@Model.Maths
+        </div>
+        <div>
+            <label>Hindi: </label>@Model.Hindi 
+        </div>
+        <div>
+            <label>English: </label>@Model.English
+        </div>
+        <div>
+            <label>Science: </label>@Model.Science
+        </div>
+        <div>
+            <label>Social Science: </label>@Model.SocialScience
+        </div>
+        <div>
+        @if ((@Model.Hindi + Model.Science + Model.SocialScience + Model.English + Model.Maths) / 5 >= 0.6)
+        {
+            <h2>@Model.FirstName has scored more than 60%</h2>
+        }
+        else
+        {
+            <h2>@Model.FirstName has scored less than 60%</h2>
+        }
+    </div>
+    </body>
+</html>
